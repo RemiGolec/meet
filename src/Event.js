@@ -6,7 +6,7 @@ class Event extends Component {
         collapsed: true
     }
 
-    handleClick = () => {
+    handleDetailsClick = () => {
         this.setState({
             collapsed: !this.state.collapsed
         })
@@ -17,18 +17,20 @@ class Event extends Component {
         const { event } = this.props;
         const { collapsed } = this.state;
 
+        let eventDate = event.start.dateTime;
         let startTime = event.start.dateTime.match(/\d\d:\d\d/);
 
         return (
             <div className="event">
                 <div>
                     <h2 className="summary">{event.summary}</h2>
+                    <p className="event-date">Date: {eventDate}</p>
                     <p className="start-time">Start Time: {startTime}</p>
                     <p className="time-zone">Time Zone: {event.start.timeZone}</p>
                     <p className="location">location: {event.location}</p>
                     <button
                         className="btn-details"
-                        onClick={this.handleClick}>
+                        onClick={this.handleDetailsClick}>
                         {collapsed ? "Show event details" : "Hide event details"}
                     </button>
                 </div>

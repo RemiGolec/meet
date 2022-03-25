@@ -10,7 +10,7 @@ describe('<Event /> component', () => {
     let EventWrapper;
 
     beforeAll(() => {
-        EventWrapper = shallow(<Event event={mockData[1]} />);
+        EventWrapper = shallow(<Event event={mockData[0]} />);
     });
 
     // Event details Collapsed
@@ -27,12 +27,37 @@ describe('<Event /> component', () => {
     test('renders time-zone', () => {
         expect(EventWrapper.find('.time-zone')).toHaveLength(1);
     });
-    test('renders button', () => {
+    test('renders button [Show event details]', () => {
         expect(EventWrapper.find('.btn-details')).toHaveLength(1);
     });
     test('renders description', () => {
         expect(EventWrapper.find('.event-description')).toHaveLength(0);
     });
 
+    // [Show event details] button on load
+
+    test('Event state.collapsed is true on load', () => {
+        expect(EventWrapper.state('collapsed')).toBe(true);
+    });
+    test('Event details button text to display [Show event details] on load', () => {
+        expect(EventWrapper.find('.btn-details').text()).toBe('Show event details');
+    });
+
     // Event details !Collapsed
+
+    test('Event state.collapse is false when .btn-details is clicked', () => {
+        EventWrapper.find('.btn-details').simulate('click');
+        expect(EventWrapper.state('collapsed')).toBe(false);
+    });
+
+    // User clicks [Show event details] button 
+
+    test('Event details button text to display [Hide event details] when .event-description expanded', () => {
+        EventWrapper.setState({
+            collapsed: true
+        })
+        EventWrapper.find('.btn-details').simulate('click');
+        expect(EventWrapper.find('.btn-details').text()).toBe('Hide event details');
+    });
+
 })

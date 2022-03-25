@@ -22,16 +22,19 @@ class CitySearch extends Component {
         });
     }
     render() {
+        let { showSuggestions, suggestions, query, infoText } = this.state;
         return (
             <div className="CitySearch">
+                <p>Choose your nearest city</p>
                 <input
                     type="text"
                     className="city"
-                    value={this.state.query}
+                    placeholder='Choose your nearest city'
+                    value={query}
                     onChange={this.handleInputChanged}
                 />
                 <ul className="suggestions">
-                    {this.state.suggestions.map((suggestion) => (
+                    {suggestions.map((suggestion) => (
                         <li
                             key={suggestion}
                             onClick={() => this.handleItemClicked(suggestion)}
