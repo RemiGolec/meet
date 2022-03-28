@@ -4,13 +4,41 @@ import './App.css';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
+
 import { mockData } from './mock-data';
-import { extractLocations } from './api';
+import { extractLocations, getEvents } from './api';
+
 
 class App extends Component {
 
   state = {
-    numberOfEvents: 12
+    numberOfEvents: 12,
+    events: [],
+    locations: []
+  }
+
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  updateEvents = (location) => {
+    getEvents().then((events) => {
+      const locationEvents = (location === 'all') ?
+        events :
+        events.filter((event) => event.location === location);
+      this.setState({
+        events: locationEvents
+      });
+    });
   }
 
   render() {
@@ -18,9 +46,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Meet Up</h1>
-        <CitySearch locations={extractLocations(mockData)} />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={numberOfEvents} />
-        <EventList events={mockData} />
+        <EventList events={this.state.events} />
       </div>
     );
   }

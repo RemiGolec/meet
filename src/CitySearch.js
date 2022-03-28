@@ -5,6 +5,7 @@ class CitySearch extends Component {
         query: '',
         suggestions: []
     }
+
     handleInputChanged = (event) => {
         const value = event.target.value;
         const suggestions = this.props.locations.filter((location) => {
@@ -16,11 +17,14 @@ class CitySearch extends Component {
             suggestions,
         });
     };
+
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion
         });
+        this.props.updateEvents(suggestion);
     }
+
     render() {
         let { showSuggestions, suggestions, query, infoText } = this.state;
         return (
@@ -40,7 +44,7 @@ class CitySearch extends Component {
                             onClick={() => this.handleItemClicked(suggestion)}
                         >{suggestion}</li>
                     ))}
-                    <li key="all">
+                    <li onClick={() => this.handleItemClicked("all")}>
                         <b>See all cities</b>
                     </li>
                 </ul>
