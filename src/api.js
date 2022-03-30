@@ -9,6 +9,7 @@
 
 import { mockData } from './mock-data';
 import axios from 'axios';
+import NProgress from 'nprogress';
 
 const checkToken = async (accessToken) => {
     const result = await fetch(
@@ -19,6 +20,39 @@ const checkToken = async (accessToken) => {
 
     return result;
 }
+
+const removeQuery = () => {
+    if (window.history.pushState && window.location.pathname) {
+        var newurl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname;
+        window.history.pushState("", "", newurl);
+    } else {
+        newurl = window.location.protocol +
+            "//" +
+            window.location.host;
+        window.history.pushState("", "", newurl);
+    }
+};
+
+const getToken = async (code) => {
+    const encodeCode = encodeURIComponent(code);
+    const { access_token } = await fetch(
+        `https://w895d88ot6.execute-api.eu-central-1.amazonaws.com/dev/api/token/{code}` +
+        '/'
+        + encodeCode
+    )
+        .then((res) => {
+            return res.json();
+        })
+        .catch((error) => error);
+
+    access_token && localStorage.setItem("access_token", access_token);
+
+    return access_token;
+};
 
 //------  NProgress function (coming from nprogress Node package) is used to create and display progress bars
 export const getEvents = async () => {
