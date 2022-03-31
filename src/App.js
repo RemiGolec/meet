@@ -31,24 +31,41 @@ class App extends Component {
     this.mounted = false;
   }
 
+  updateNumberOfEvents = (numberOfEvents) => {
+    this.setState(
+      {
+        numberOfEvents,
+      },
+      this.updateEvents(this.state.locations, numberOfEvents)
+    );
+  };
+
+
   updateEvents = (location) => {
     getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
-        events :
-        events.filter((event) => event.location === location);
+      const locationEvents = location === 'all'
+        ? events : events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents
       });
     });
   }
 
+
+
   render() {
     let { numberOfEvents } = this.state;
     return (
       <div className="App">
         <h1>Meet Up</h1>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents numberOfEvents={numberOfEvents} />
+        <CitySearch
+          locations={this.state.locations}
+          updateEvents={this.updateEvents}
+        />
+        <NumberOfEvents
+          numberOfEvents={numberOfEvents}
+          updateNumberOfEvents={this.updateNumberOfEvents}
+        />
         <EventList events={this.state.events} />
       </div>
     );
