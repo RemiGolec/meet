@@ -1,12 +1,30 @@
+:root {
+  --background-color: #f2f2f2;
+  --accent-color: #ff1493;
+  --accent-color-shadow: #bcdcdb;
+  --hover-color: #bcdcdb; 
+  /* -----   fonts 
+  'Bungee Shade', cursive;
+  'Monoton', cursive;
+  'Rubik Mono One', sans-serif;
+  'Send Flowers', cursive;  
+  */
+  --title-font: 'Bungee Shade', cursive;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: var(--background-color);
 }
 
 .App * {
   box-sizing: border-box;
 }
+
+
 
 ul {
   padding: 0;
@@ -24,13 +42,34 @@ p {
   display: block;
 }
 
+.title {
+  color: var(--accent-color);
+  font-family: var( --title-font);
+  text-shadow: 5px 7px 5px var( --accent-color-shadow);
+  font-size: 3em
+}
+.title::after {
+  position: relative;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  content: '';
+  position: inherit;
+  width: 90vw;
+  height: 1px;
+  /* left: 0; */
+  display: block;
+  clear: both;
+  background-color: rgb(148, 148, 148);
+  box-shadow: 5px 7px 5px var( --accent-color-shadow);
+}
+
 input[type="text"],
 input[type="number"] {
-  padding: 8px 6px 8px 10px;
+  padding: 1.2em;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  border: none;
+  font-size: 20px;
   line-height: 20px;
   align-self: center;
   height: 38px;
@@ -76,16 +115,23 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.number-events {
+  width: 250px;
+  margin-bottom: 1em;
+}
+
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 4px;
   position: relative;
+  background-color: #fefefe ;
+  box-shadow: 10px 10px 8px #888888;
 }
 
-.details-btn {
+.btn-details {
   position: absolute;
   right: 5px;
   bottom: 5px;

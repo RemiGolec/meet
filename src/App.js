@@ -63,7 +63,7 @@ class App extends Component {
     let { numberOfEvents } = this.state;
     return (
       <div className="App">
-        <h1>Meet Up</h1>
+        <h1 className="title">Meet Up</h1>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
