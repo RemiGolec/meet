@@ -28,17 +28,19 @@ class Event extends Component {
                     <p className="start-time">Start Time: {startTime}</p>
                     <p className="time-zone">Time Zone: {event.start.timeZone}</p>
                     <p className="location">location: {event.location}</p>
-                    <button
-                        className="btn-details"
-                        onClick={this.handleDetailsClick}>
-                        {collapsed ? "Show event details" : "Hide event details"}
-                    </button>
                 </div>
                 {!collapsed &&
                     <div>
                         <p className="event-description">Event Details: {event.description}</p>
                     </div>
                 }
+                <div className="btn-details_wrapper">
+                    <button
+                        className="btn-details"
+                        onClick={this.handleDetailsClick}>
+                        {collapsed ? "Show event details" : "Hide event details"}
+                    </button>
+                </div>
             </div>
 
         )
