@@ -2,7 +2,7 @@
   --background-color: #f2f2f2;
   --accent-color: #ff1493;
   --accent-color-shadow: #bcdcdb;
-  --hover-color: #bcdcdb; 
+  --hover-color: #2EE59D; 
   /* -----   fonts 
   'Bungee Shade', cursive;
   'Monoton', cursive;
@@ -132,13 +132,17 @@ input[type="number"] {
 }
 
 .btn-details {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
   border-radius: 4px;
-  outline: none;
-  cursor: pointer;
+    border: none;
+    bottom: 5px;
+    cursor: pointer;
+    outline: none;
+    padding: 12px 16px;
+    position: absolute;
+    right: 5px;
+    box-shadow: 2px 2px 3px #888;
+    color: var(--accent-color);
+    background-color: var(--accent-color-shadow);
 }
 
 .name {
