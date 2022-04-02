@@ -150,6 +150,7 @@ input[type="number"] {
     background-color: var(--accent-color-shadow);
     letter-spacing: 2.5px;
     margin-top: 10px;
+    font-size: 12px;
 }
 
 .name {
