@@ -34,13 +34,13 @@ describe('<Event /> component', () => {
         expect(EventWrapper.find('.event-description')).toHaveLength(0);
     });
 
-    // [Show event details] button on load
+    // [Show details] button on load
 
     test('Event state.collapsed is true on load', () => {
         expect(EventWrapper.state('collapsed')).toBe(true);
     });
-    test('Event details button text to display [Show event details] on load', () => {
-        expect(EventWrapper.find('.btn-details').text()).toBe('Show event details');
+    test('Event details button text to display [Show details] on load', () => {
+        expect(EventWrapper.find('.btn-details').text()).toBe('Show details');
     });
 
     // Event details !Collapsed
@@ -52,12 +52,12 @@ describe('<Event /> component', () => {
 
     // User clicks [Show event details] button 
 
-    test('Event details button text to display [Hide event details] when .event-description expanded', () => {
+    test('Event details button text to display [Hide details] when .event-description expanded', () => {
         EventWrapper.setState({
             collapsed: true
         })
         EventWrapper.find('.btn-details').simulate('click');
-        expect(EventWrapper.find('.btn-details').text()).toBe('Hide event details');
+        expect(EventWrapper.find('.btn-details').text()).toBe('Hide details');
     });
 
 })

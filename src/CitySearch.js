@@ -33,9 +33,8 @@ class CitySearch extends Component {
         return (
             <div className="CitySearch">
                 <p>Choose your nearest city</p>
-                <input
+                <input className="city"
                     type="text"
-                    className="city"
                     placeholder='Choose your city'
                     value={query}
                     onChange={this.handleInputChanged}

@@ -3,6 +3,7 @@
   --accent-color: #ff1493;
   --accent-color-shadow: #bcdcdb;
   --hover-color: #2EE59D; 
+  --hover-color-text: #fefefe;
   /* -----   fonts 
   'Bungee Shade', cursive;
   'Monoton', cursive;
@@ -146,11 +147,14 @@ input[type="number"] {
     padding: 12px 16px;
     bottom: 10px;
     box-shadow: 2px 2px 3px #888;
-    color: var(--accent-color);
-    background-color: var(--accent-color-shadow);
     letter-spacing: 2.5px;
     margin-top: 10px;
     font-size: 12px;
+}
+
+.btn-details:hover {
+  background-color: var(--hover-color);
+  color: var(--hover-color-text);
 }
 
 .name {

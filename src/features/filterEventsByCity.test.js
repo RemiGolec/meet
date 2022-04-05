@@ -1,11 +1,14 @@
 import React from 'react';
 import { loadFeature, defineFeature } from "jest-cucumber";
 import { mount, shallow } from 'enzyme';
-import App from '../App';
 import { mockData } from '../mock-data';
-import CitySearch from '../CitySearch';
+
+// functions
 import { extractLocations } from '../api';
 
+// components
+import App from '../App';
+import CitySearch from '../CitySearch';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
