@@ -34,13 +34,25 @@ class App extends Component {
 
   updateNumberOfEvents = (numberOfEvents) => {
     console.log('called:', numberOfEvents)
-    this.setState(
-      {
-        numberOfEvents,
-      },
-      this.updateEvents(this.state.currentLocation, numberOfEvents)
-    );
+
+    const value = numberOfEvents;
+    console.log('const value:', value);
+
+    if (value <= 0 || value > 32) {
+      this.setState({
+        numberOfEvents: "",
+        infoText: "choose number 1 to 32",
+      });
+      console.log('this.setState:', this.setState.infoText);
+    } else {
+      this.setState({
+        numberOfEvents: value,
+        infoText: ""
+      });
+    }
+    this.updateEvents(this.state.currentLocation, numberOfEvents);
   };
+
 
 
   updateEvents = (location = 'all') => {
