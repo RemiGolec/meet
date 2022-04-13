@@ -5,6 +5,7 @@ import './nprogress.css';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
+import { ErrorAlert } from './Alert';
 
 import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
@@ -33,10 +34,7 @@ class App extends Component {
   }
 
   updateNumberOfEvents = (numberOfEvents) => {
-    console.log('called:', numberOfEvents)
-
     const value = numberOfEvents;
-    console.log('const value:', value);
 
     if (value <= 0 || value > 32) {
       this.setState({
@@ -84,6 +82,7 @@ class App extends Component {
           numberOfEvents={numberOfEvents}
           updateNumberOfEvents={this.updateNumberOfEvents}
         />
+        <ErrorAlert text={this.state.infoText} />
         <EventList events={this.state.events} />
       </div>
     );
