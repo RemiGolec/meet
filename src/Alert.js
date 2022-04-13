@@ -26,7 +26,16 @@ class Alert extends Component {
 class InfoAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'blue';
+        this.color = 'white';
+    }
+    getStyle = () => {
+        return {
+            color: this.color,
+            backgroundColor: Color('blue').alpha(0.75).string(),
+            padding: '16px',
+            borderRadius: '10px',
+            fontSize: '2em'
+        }
     }
 }
 class ErrorAlert extends Alert {
