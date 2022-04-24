@@ -19,7 +19,7 @@ class CitySearch extends Component {
             this.setState({
                 query: value,
                 infoText:
-                    `We can not find the city you are looking for. 
+                    `We can't find the city you are looking for. 
                  Please try another city`,
             });
         } else {
@@ -46,7 +46,7 @@ class CitySearch extends Component {
         let { showSuggestions, suggestions, query, infoText } = this.state;
         return (
             <div className="CitySearch">
-                <InfoAlert text={this.state.infoText} />
+
                 <p>Choose your nearest city</p>
                 <input className="city"
                     type="text"
@@ -55,6 +55,7 @@ class CitySearch extends Component {
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
                 />
+                <InfoAlert text={this.state.infoText} />
                 <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
                     {suggestions.map((suggestion) => (
                         <li

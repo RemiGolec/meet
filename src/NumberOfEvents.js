@@ -16,6 +16,7 @@ class NumberOfEvents extends Component {
                     type="number"
                     value={numberOfEvents}
                     onChange={(e) => updateNumberOfEvents(e.target.value)} />
+
             </div>
         )
     }
