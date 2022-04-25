@@ -31,7 +31,7 @@ class InfoAlert extends Alert {
     getStyle = () => {
         return {
             color: this.color,
-            backgroundColor: Color('black').alpha(0.75).string(),
+            backgroundColor: Color('blue').alpha(0.75).string(),
         }
     }
 }
@@ -43,7 +43,7 @@ class ErrorAlert extends Alert {
     getStyle = () => {
         return {
             color: this.color,
-            backgroundColor: Color('black').alpha(0.75).string(),
+            backgroundColor: Color('red').alpha(0.75).string(),
         }
     }
 

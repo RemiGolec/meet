@@ -17,7 +17,8 @@ class App extends Component {
     numberOfEvents: 32,
     events: [],
     locations: [],
-    currentLocation: 'all'
+    currentLocation: 'all',
+
   }
 
   componentDidMount() {
@@ -70,7 +71,7 @@ class App extends Component {
 
 
   render() {
-    let { numberOfEvents } = this.state;
+    let { numberOfEvents, infoText } = this.state;
     return (
       <div className="App">
         <h1 className="title">Meet Up</h1>
@@ -82,7 +83,9 @@ class App extends Component {
           numberOfEvents={numberOfEvents}
           updateNumberOfEvents={this.updateNumberOfEvents}
         />
-        <ErrorAlert text={this.state.infoText} />
+        {infoText &&
+          <ErrorAlert text={this.state.infoText} />
+        }
         <EventList events={this.state.events} />
       </div>
     );
