@@ -78,7 +78,7 @@ class App extends Component {
           text='You are not connected to the internet.' /> :
           <WarningAlert
             // className="alert__offline-hidden"
-            text='back on line' />
+            text='' />
         }
         <h1 className="title">Meet Up</h1>
         <CitySearch
