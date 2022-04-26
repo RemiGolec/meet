@@ -6,8 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import { ErrorAlert } from './Alert';
-
-import { mockData } from './mock-data';
+import { WarningAlert } from './Alert';
 import { extractLocations, getEvents } from './api';
 
 
@@ -74,6 +73,13 @@ class App extends Component {
     let { numberOfEvents, infoText } = this.state;
     return (
       <div className="App">
+        {!navigator.onLine ? <WarningAlert
+          className="alert__offline-visible"
+          text='You are not connected to the internet.' /> :
+          <WarningAlert
+            className="alert__offline-hidden"
+            text='back on line' />
+        }
         <h1 className="title">Meet Up</h1>
         <CitySearch
           locations={this.state.locations}
