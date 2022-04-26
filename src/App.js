@@ -74,10 +74,10 @@ class App extends Component {
     return (
       <div className="App">
         {!navigator.onLine ? <WarningAlert
-          className="alert__offline-visible"
+          // className="alert__offline-visible"
           text='You are not connected to the internet.' /> :
           <WarningAlert
-            className="alert__offline-hidden"
+            // className="alert__offline-hidden"
             text='back on line' />
         }
         <h1 className="title">Meet Up</h1>

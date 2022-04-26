@@ -88,7 +88,7 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   flex-basis: 300px;
-  max-width: 300px;
+  /* max-width: 300px; */
   margin: auto;
   position: relative;
 }
@@ -195,7 +195,8 @@ input[type="number"] {
 
 .Alert {
   padding: 0.7em;
-  width: 90vw;
+  width: 50vw;
+  margin: auto;
   align-self: center;
   /* font-weight: bold; */
 }
