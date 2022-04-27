@@ -7,8 +7,9 @@ import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import { ErrorAlert } from './Alert';
 import { WarningAlert } from './Alert';
-import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
+
 
 
 
@@ -81,9 +82,7 @@ class App extends Component {
 
 
   render() {
-    if (this.state.showWelcomeScreen === undefined)
-      return
-    <div className="App" />
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     let { numberOfEvents, infoText } = this.state;
     return (
