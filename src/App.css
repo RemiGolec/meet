@@ -49,9 +49,9 @@ p {
 }
 
 .title {
-  color: var(--accent-color);
+  color: var(--accent-color-2);
   font-family: var( --title-font);
-  text-shadow: 5px 7px 5px var( --accent-color-shadow);
+  /* text-shadow: 5px 7px 5px var( --accent-color-shadow); */
   font-size: 3em;
   margin-top: 0;
 }
@@ -139,6 +139,7 @@ input[type="number"] {
   position: relative;
   background-color: #fefefe ;
   box-shadow: 10px 10px 8px #888888;
+  margin: 20px;
 }
 
 .btn-details_wrapper {
@@ -202,7 +203,7 @@ input[type="number"] {
   margin: auto;
   align-self: center;
   /* font-weight: bold; */
-  background-color: black;
+  background-color: var(--background-color-2);
 }
 
 .data-vis-wrapper {
