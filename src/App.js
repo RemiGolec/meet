@@ -9,7 +9,7 @@ import { ErrorAlert } from './Alert';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 
@@ -31,13 +31,14 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) }); if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    // if ((code || isTokenValid) && this.mounted) {
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
+    // }
   }
 
 
@@ -90,7 +91,7 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+    {/* if (this.state.showWelcomeScreen === undefined) return <div className="App" /> */ }
 
     let { numberOfEvents, infoText } = this.state;
 
@@ -115,22 +116,22 @@ class App extends Component {
         {infoText &&
           <ErrorAlert text={this.state.infoText} />
         }
-        <ScatterChart
-          width={400}
-          height={400}
-          margin={{
+        <ResponsiveContainer height={200}>
+          <ScatterChart margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
-        >
-          <CartesianGrid />
-          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={this.getData()} fill="#8884d8" />
-        </ScatterChart>
+          >
+            <CartesianGrid />
+            <XAxis type="category" dataKey="city" name="city" />
+            <YAxis type="number" dataKey="number" name="number of events" />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter name="A school" data={this.getData()} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
+
         <EventList events={this.state.events} />
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} />
+        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} /> */}
       </div>
     );
   }
