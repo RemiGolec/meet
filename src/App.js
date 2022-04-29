@@ -93,6 +93,7 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     let { numberOfEvents, infoText } = this.state;
+
     return (
       <div className="App">
         {!navigator.onLine ? <WarningAlert
@@ -125,7 +126,7 @@ class App extends Component {
           <XAxis type="number" dataKey="x" name="stature" unit="cm" />
           <YAxis type="number" dataKey="y" name="weight" unit="kg" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
+          <Scatter name="A school" data={this.getData()} fill="#8884d8" />
         </ScatterChart>
         <EventList events={this.state.events} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
