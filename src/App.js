@@ -91,7 +91,7 @@ class App extends Component {
   };
 
   render() {
-    {/* if (this.state.showWelcomeScreen === undefined) return <div className="App" /> */ }
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     let { numberOfEvents, infoText } = this.state;
 
@@ -130,8 +130,8 @@ class App extends Component {
         </ResponsiveContainer>
 
         <EventList events={this.state.events} />
-        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} /> */}
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
