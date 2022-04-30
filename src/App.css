@@ -210,6 +210,9 @@ input[type="number"] {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 5%;
+  background-color: var(--hover-color-text);
+  box-shadow: 10px 10px 8px #888888;
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
