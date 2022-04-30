@@ -202,8 +202,6 @@ input[type="number"] {
   width: auto;
   margin: auto;
   align-self: center;
-  /* font-weight: bold; */
-  background-color: var(--background-color-2);
 }
 
 .data-vis-wrapper {
