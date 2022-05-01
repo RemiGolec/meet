@@ -36,7 +36,7 @@ ul {
 }
 
 p {
-  margin: 5px 0;
+  margin: 0 0;
 }
 
 .display-none {
@@ -53,6 +53,7 @@ p {
     font-size: 3em;
     padding-bottom: 31px;
     padding-top: 27px;
+    margin: 0 10px;
 }
 
 input[type="text"],
@@ -77,6 +78,7 @@ input[type="number"] {
     flex-direction: column;
     position: relative;
     padding-bottom: 5px;
+    margin: 0 10px;
     background-color: var(--accent-color-2);
 }
 
