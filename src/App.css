@@ -200,6 +200,11 @@ input[type="number"] {
   align-self: center;
 }
 
+.Alert.WarningAlert {
+  background-color: var(--accent-color-2);
+  margin: 0 10px;
+}
+
 .data-vis-wrapper {
   display: flex;
   align-items: center;
