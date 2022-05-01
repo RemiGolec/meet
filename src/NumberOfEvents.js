@@ -9,7 +9,7 @@ class NumberOfEvents extends Component {
     render() {
         const { numberOfEvents, updateNumberOfEvents } = this.props
         return (
-            <div>
+            <div className="number-events-wrapper">
                 <p>number of events:</p>
                 <input
                     className="number-events"

@@ -47,27 +47,12 @@ p {
 }
 
 .title {
-  color: var(--accent-color-2);
-  font-family: var( --title-font);
-  /* text-shadow: 5px 7px 5px var( --accent-color-shadow); */
-  font-size: 3em;
-  margin-top: 0;
-  background-color: var(--background-color-2);
-}
-
-.title::after {
-  position: relative;
-  margin-top: 0.7em;
-  margin-bottom: 0.7em;
-  content: '';
-  position: inherit;
-  width: 90vw;
-  height: 1px;
-  left: 0;
-  display: block;
-  clear: both;
-  background-color: rgb(148, 148, 148);
-  box-shadow: 5px 7px 5px var( --accent-color-shadow);
+    background-color: #35d5ff;
+    color: #fefefe;
+    font-family: var( --title-font);
+    font-size: 3em;
+    padding-bottom: 31px;
+    padding-top: 27px;
 }
 
 input[type="text"],
@@ -88,11 +73,11 @@ input[type="number"] {
 
 .CitySearch {
   display: flex;
-  flex-direction: column;
-  flex-basis: 300px;
-  /* max-width: 300px; */
-  margin: auto;
-  position: relative;
+    flex-basis: 300px;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 5px;
+    background-color: var(--accent-color-2);
 }
 
 .suggestions {
@@ -125,6 +110,14 @@ input[type="number"] {
 .number-events {
   width: 250px;
   margin-bottom: 1em;
+}
+
+.number-events-wrapper {
+  background-color: #35d5ff;
+  padding-bottom: 31px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  margin: 0 10px;
 }
 
 .event {
