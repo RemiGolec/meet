@@ -11,10 +11,6 @@ import WelcomeScreen from './WelcomeScreen';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-
-
-
-
 class App extends Component {
 
   state = {
@@ -64,14 +60,11 @@ class App extends Component {
     this.updateEvents(this.state.currentLocation, numberOfEvents);
   };
 
-
-
   updateEvents = (location = 'all') => {
     getEvents().then((events) => {
       const locationEvents = location === 'all'
         ? events : events.filter((event) => event.location === location);
       if (this.mounted) {
-        // console.log('setting state');
         this.setState({
           events: locationEvents.slice(0, this.state.numberOfEvents),
           currentLocation: location,
