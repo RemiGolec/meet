@@ -6,8 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import EventList from './EventList';
 import EventGenre from './EventGenre';
-import { ErrorAlert } from './Alert';
-import { WarningAlert } from './Alert';
+import { WarningAlert, ErrorAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -32,7 +31,7 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    // this.setState({ showWelcomeScreen: !(code || isTokenValid) });
     // if ((code || isTokenValid) && this.mounted) {
     getEvents().then((events) => {
       if (this.mounted) {
@@ -92,17 +91,15 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+    // if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     let { numberOfEvents, infoText, events } = this.state;
 
     return (
       <div className="App">
         {!navigator.onLine ? <WarningAlert
-          // className="alert__offline-visible"
           text='You are not connected to the internet.' /> :
           <WarningAlert
-            // className="alert__offline-hidden"
             text='' />
         }
         <h1 className="title">Meet Up</h1>
@@ -133,8 +130,8 @@ class App extends Component {
           </ResponsiveContainer>
         </div>
         <EventList events={this.state.events} />
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} />
+        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} /> */}
       </div>
     );
   }

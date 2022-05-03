@@ -6,10 +6,12 @@ class Alert extends Component {
     constructor(props) {
         super(props);
         this.color = null;
+        this.padding = "5px";
     }
     getStyle = () => {
         return {
             color: this.color,
+            padding: this.padding
         };
     }
     render() {
@@ -31,19 +33,26 @@ class InfoAlert extends Alert {
     getStyle = () => {
         return {
             color: this.color,
-            backgroundColor: Color('blue').alpha(0.75).string(),
+            backgroundColor: Color('#414464').alpha(1).string(),
+            padding: "0.2em",
+            width: "250px",
+            borderRadius: "7px"
         }
     }
 }
 class ErrorAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'white';
+        this.color = '#ffffff';
     }
     getStyle = () => {
         return {
             color: this.color,
-            backgroundColor: Color('red').alpha(0.75).string(),
+            backgroundColor: Color('#ff5449').alpha(1).string(),
+            padding: "0.2em",
+            width: "250px",
+            margin: "auto",
+            borderRadius: "7px"
         }
     }
 
